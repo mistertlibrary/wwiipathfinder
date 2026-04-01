@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Your Lesson Materials</title>
+    <style>
+        .design-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .design-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2c3e50;
+            padding: 25px;
+        }
+        
+        .design-header h2 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        
+        .design-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .design-content {
+            padding: 25px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .section-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid;
+        }
+        
+        .section-box.slides { border-top-color: #ff6b6b; }
+        .section-box.handout { border-top-color: #4c6ef5; }
+        
+        .section-box h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        
+        .principles {
+            margin: 15px 0;
+        }
+        
+        .principle-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 4px solid #20c997;
+        }
+        
+        .principle-item h4 {
+            margin: 0 0 8px 0;
+            color: #099268;
+            font-size: 18px;
+        }
+        
+        .principle-item p {
+            margin: 0;
+            color: #495057;
+            line-height: 1.6;
+        }
+        
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .do-dont {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .do-box, .dont-box {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .do-box {
+            background: #d3f9d8;
+            border: 2px solid #51cf66;
+        }
+        
+        .dont-box {
+            background: #ffe8e8;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .do-box h4 {
+            margin-top: 0;
+            color: #2b8a3e;
+            font-size: 18px;
+        }
+        
+        .dont-box h4 {
+            margin-top: 0;
+            color: #c92a2a;
+            font-size: 18px;
+        }
+        
+        .do-box ul, .dont-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .do-box li, .dont-box li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .resource-links {
+            background: #e7f5ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .resource-links h4 {
+            margin-top: 0;
+            color: #1864ab;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .resource-link {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid #4dabf7;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .resource-link:hover {
+            background: #4dabf7;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .resource-link strong {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .resource-link span {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .checklist-box {
+            background: #fff3bf;
+            border-left: 4px solid #fab005;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .checklist-box h4 {
+            margin-top: 0;
+            color: #7d5a00;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        
+        .checklist li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            color: #495057;
+        }
+        
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            color: #fab005;
+        }
+        
+        .example-slide {
+            background: #f1f3f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 3px solid #dee2e6;
+        }
+        
+        .example-slide h5 {
+            margin: 0 0 15px 0;
+            color: #495057;
+            text-align: center;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .slide-content {
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            min-height: 200px;
+        }
+        
+        .slide-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .slide-bullets {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .slide-bullets li {
+            padding: 10px 0;
+            font-size: 18px;
+            color: #495057;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .slide-bullets li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-size: 20px;
+        }
+        
+        .timing-alert {
+            background: #ffe0e0;
+            border: 2px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .timing-alert h4 {
+            margin: 0 0 10px 0;
+            color: #c92a2a;
+            font-size: 22px;
+        }
+        
+        .timing-alert p {
+            margin: 5px 0;
+            color: #495057;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="design-container">
+        <div class="design-header">
+            <h2>🎨 Designing Your Presentation & Handout</h2>
+            <p>Create materials that engage your classmates and reinforce your teaching</p>
+        </div>
+        
+        <div class="design-content">
+            <div class="timing-alert">
+                <h4>⏱️ Remember: 15 Minutes Exactly</h4>
+                <p>Plan your slides and handout to fit this timeframe</p>
+                <p>Too short = incomplete lesson | Too long = running over = points deducted</p>
+            </div>
+            
+            <div class="two-column">
+                <!-- Google Slides Section -->
+                <div class="section-box slides">
+                    <h3>📊 Google Slides Presentation</h3>
+                    <p style="margin-bottom: 20px;"><strong>Purpose:</strong> Visual support for your verbal teaching. Slides enhance understanding but shouldn't replace you!</p>
+                    
+                    <div class="principles">
+                        <div class="principle-item">
+                            <h4>Keep It Simple</h4>
+                            <p>Each slide should have ONE main idea. Use bullet points, not paragraphs. Your slides are visual aids, not your script.</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>Make It Visual</h4>
+                            <p>Use images, maps, charts, and graphs. A picture is worth a thousand words — especially in a 15-minute lesson.</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>Readable from the Back</h4>
+                            <p>Font size 24pt minimum. High contrast (dark text on light background or vice versa). No fancy fonts that are hard to read.</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>Limit Slides</h4>
+                            <p>For a 15-minute lesson: 8-12 slides maximum. That's about 1-2 minutes per slide including your explanation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Handout Section -->
+                <div class="section-box handout">
+                    <h3>📄 Printed Handout</h3>
+                    <p style="margin-bottom: 20px;"><strong>Purpose:</strong> A reference your classmates can study later. It should summarize key points and include visuals.</p>
+                    
+                    <div class="principles">
+                        <div class="principle-item">
+                            <h4>Well-Organized</h4>
+                            <p>Use clear sections with headings. Students should be able to scan and find information quickly.</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>Visually Appealing</h4>
+                            <p>Include 3+ images/graphics (REQUIRED). Use white space — don't cram everything together. Consider columns or boxes to organize content.</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>Complete but Concise</h4>
+                            <p>Cover all major points from your lesson. But keep it to 1-2 pages maximum. Focus on what's most important.</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>Properly Cited</h4>
+                            <p>Cite all images and any quotes. Include sources for major facts if taken from specific articles or books.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>✅ Do's and ❌ Don'ts</h3>
+            
+            <div class="do-dont">
+                <div class="do-box">
+                    <h4>✅ DO THIS</h4>
+                    <ul>
+                        <li>Start with a strong hook slide to grab attention</li>
+                        <li>Use high-quality images relevant to your topic</li>
+                        <li>Include maps showing geographic scope</li>
+                        <li>Use bullet points, not full sentences</li>
+                        <li>Add captions to images explaining their relevance</li>
+                        <li>Use consistent colors and fonts throughout</li>
+                        <li>End with a summary slide of key takeaways</li>
+                        <li>Practice your timing with the slides</li>
+                    </ul>
+                </div>
+                
+                <div class="dont-box">
+                    <h4>❌ DON'T DO THIS</h4>
+                    <ul>
+                        <li>Read directly from your slides word-for-word</li>
+                        <li>Use tiny fonts that people can't read</li>
+                        <li>Overload slides with too much text</li>
+                        <li>Use distracting animations or transitions</li>
+                        <li>Include random clip art that doesn't add value</li>
+                        <li>Use low-resolution blurry images</li>
+                        <li>Forget to cite your image sources</li>
+                        <li>Make slides that could stand alone without you</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>📐 Sample Slide Structure</h3>
+            <p>Here's what an effective slide might look like for "The Scramble for Africa":</p>
+            
+            <div class="example-slide">
+                <h5>Example Slide 3: Why the Scramble Happened</h5>
+                <div class="slide-content">
+                    <div class="slide-title">Causes of the Scramble</div>
+                    <ul class="slide-bullets">
+                        <li>Competition for raw materials (rubber, minerals, cotton)</li>
+                        <li>Strategic military advantage</li>
+                        <li>National prestige and rivalry</li>
+                        <li>Economic markets for manufactured goods</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 20px; font-style: italic; color: #666;">
+                        [Image: Political cartoon showing European powers dividing Africa]
+                    </p>
+                </div>
+            </div>
+            
+            <div class="resource-links">
+                <h4>🔗 Helpful Resources</h4>
+                <div class="resource-grid">
+                    <a href="https://slides.google.com/create" target="_blank" class="resource-link">
+                        <strong>Google Slides</strong>
+                        <span>Create your presentation</span>
+                    </a>
+                    <a href="https://docs.google.com/presentation/u/0/?ftv=1&folder=0AKK4-EirzD7RUk9PVA" target="_blank" class="resource-link">
+                        <strong>Slide Templates</strong>
+                        <span>Pre-designed layouts</span>
+                    </a>
+                    <a href="https://www.canva.com/" target="_blank" class="resource-link">
+                        <strong>Canva</strong>
+                        <span>Design tool for handouts</span>
+                    </a>
+                    <a href="https://color.adobe.com/" target="_blank" class="resource-link">
+                        <strong>Color Palette</strong>
+                        <span>Choose matching colors</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="checklist-box">
+                <h4>📋 Pre-Presentation Checklist</h4>
+                <ul class="checklist">
+                    <li>Slides are clear, readable, and visually appealing</li>
+                    <li>All images are cited on slides or handout</li>
+                    <li>Handout includes 3+ images/graphics (REQUIRED)</li>
+                    <li>Handout is well-organized with clear sections</li>
+                    <li>Handout summarizes all major points from lesson</li>
+                    <li>7 copies of handout are printed and ready</li>
+                    <li>Practiced presentation and it runs 15 minutes</li>
+                    <li>Technology tested (slides load properly, etc.)</li>
+                    <li>Hook/opening question prepared to engage class</li>
+                    <li>Primary source document ready to share/discuss</li>
+                </ul>
+            </div>
+            
+            <h3>💡 Pro Tips from Past Students</h3>
+            
+            <div class="do-dont">
+                <div class="do-box">
+                    <h4>For Google Slides</h4>
+                    <ul>
+                        <li><strong>Use the rule of thirds:</strong> Don't center everything; create visual interest with asymmetry</li>
+                        <li><strong>One powerful image > many small ones:</strong> Make visuals big and impactful</li>
+                        <li><strong>Dark mode option:</strong> White text on dark background can be easier to read in some classrooms</li>
+                        <li><strong>Speaker notes:</strong> Use them for your talking points so you don't forget key details</li>
+                    </ul>
+                </div>
+                
+                <div class="do-box">
+                    <h4>For Handouts</h4>
+                    <ul>
+                        <li><strong>Create columns:</strong> Two-column layout makes handouts easier to read than wall-to-wall text</li>
+                        <li><strong>Use text boxes:</strong> Highlight key terms or dates in separate boxes for emphasis</li>
+                        <li><strong>Include timeline:</strong> If your topic spans years, a visual timeline helps</li>
+                        <li><strong>Add a "For Further Reading" section:</strong> Show where students can learn more</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="checklist-box" style="background: #e7f5ff; border-left-color: #228be6;">
+                <h4 style="color: #1864ab;">🎯 Sample Handout Structure</h4>
+                <p><strong>Page 1:</strong></p>
+                <ul class="checklist">
+                    <li><strong>Title & Your Name</strong> at top</li>
+                    <li><strong>Hook Question:</strong> The big question you opened with</li>
+                    <li><strong>Background/Context:</strong> Brief paragraph setting the scene</li>
+                    <li><strong>Main Content:</strong> 3-5 key points with supporting details (use headers!)</li>
+                    <li><strong>Images:</strong> Strategically placed with captions</li>
+                    <li><strong>Key Vocabulary:</strong> Box with important terms defined</li>
+                    <li><strong>Timeline:</strong> If applicable to your topic</li>
+                    <li><strong>Primary Source Excerpt:</strong> Quote from document you discussed</li>
+                    <li><strong>Conclusion/Significance:</strong> Why this topic matters</li>
+                    <li><strong>Sources/Citations:</strong> At bottom or on back</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
