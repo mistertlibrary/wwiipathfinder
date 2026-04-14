@@ -941,3 +941,152 @@ main {
   font-size: 0.88rem;
   line-height: 1.6;
 }
+
+/* ============================================================
+   HEADER BYLINE
+   ============================================================ */
+.header-byline {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-top: 0.5rem;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   PERSISTENT LEGEND STRIP
+   Lives between nav and main; visible on all tabs.
+   ============================================================ */
+.legend-strip {
+  background: var(--navy-dark);
+  border-bottom: 1px solid rgba(245,237,214,0.08);
+}
+
+.legend-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.55rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.legend-strip-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,237,214,0.45);
+  white-space: nowrap;
+}
+
+.legend-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(245,237,214,0.7);
+  white-space: nowrap;
+}
+
+.legend-pip {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-strip-toggle {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: none;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: var(--radius);
+  padding: 0.25em 0.75em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.legend-strip-toggle:hover,
+.legend-strip-toggle[aria-expanded="true"] {
+  background: rgba(201,168,76,0.12);
+  color: #e8c55a;
+}
+
+.legend-strip-detail {
+  border-top: 1px solid rgba(245,237,214,0.06);
+  padding: 1rem 1.5rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* hidden attribute handled by JS; this ensures transition */
+.legend-strip-detail[hidden] {
+  display: none;
+}
+
+.legend-strip-definitions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+.legend-def-item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.legend-def-item .legend-pip {
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.legend-def-item div {
+  font-size: 0.78rem;
+  color: rgba(245,237,214,0.6);
+  line-height: 1.55;
+}
+
+.legend-def-item strong {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  color: rgba(245,237,214,0.85);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+/* ============================================================
+   CITATION PROMPT — CARD BACKS
+   ============================================================ */
+.cite-prompt {
+  border-top: 1px dashed var(--tan);
+  margin-top: 0.6rem;
+  padding-top: 0.7rem;
+}
+
+.cite-heading {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 0.3rem;
+}
+
+.cite-text {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.55;
+  font-family: var(--font-mono);
+}
